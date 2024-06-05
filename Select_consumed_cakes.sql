@@ -1,14 +1,9 @@
 SELECT
-    c.cake,
-    i.consumed AS icing_consumed,
-    s.sprinkle,
-    s.consumed AS sprinkle_consumed
+    c.cake
 FROM
     tbl_cakes as c
     INNER JOIN tbl_icings i ON c.fk_icing = i.pk_id
     AND i.consumed = 0
-    INNER JOIN tbl_reserved_sprinkles rs ON rs.fk_cake = c.pk_id
-    INNER JOIN tbl_sprinkles s ON s.pk_id = rs.fk_sprinkle
 WHERE
     3 = (
         SELECT
